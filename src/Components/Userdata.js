@@ -24,6 +24,7 @@ class Userdata extends React.Component{
        this.handlehobbies= this.handlehobbies.bind(this);
        this.handleusername= this.handleusername.bind(this);
        this.handleSubmit = this.handleSubmit.bind(this);
+        this.sendmail= this.sendmail.bind(this);
     }
     handleupdate=(item)=>{
       this.setState({updateData:[item],_id:item._id,username:item.username,phone:item.phone,email:item.email,hobbies:item.hobbies});
@@ -89,6 +90,23 @@ class Userdata extends React.Component{
        })
         .then(res=>{alert(res.data.messeage)})
        }
+    sendmail=(item)=>{
+    
+    axios({
+      url:'http://localhost:8000/emailsend',
+      method:'POST',
+      data:{
+        username:item.username,
+        email:item.email,
+        hobbies:item.hobbies,
+        phone:item.phone
+      }
+    })
+    .then(res=>{alert(res.data.messeage)})
+    
+
+  }
+  
   
          
 
