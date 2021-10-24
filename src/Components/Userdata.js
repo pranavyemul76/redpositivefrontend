@@ -93,7 +93,7 @@ class Userdata extends React.Component{
     sendmail=(item)=>{
     
     axios({
-      url:'http://localhost:8000/emailsend',
+      url:'https://forbackend.herokuapp.com/emailsend',
       method:'POST',
       data:{
         username:item.username,
